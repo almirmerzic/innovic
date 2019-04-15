@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-postlist',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostlistComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get("https://jsonplaceholder.typicode.com/posts")
+    .subscribe((data) => console.log(data));
   }
-
+  
 }
