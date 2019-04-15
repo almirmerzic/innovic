@@ -1,14 +1,12 @@
 <table class="table">
   <thead class="thead-light">
     <tr>
-      <th scope="col">Id</th>
       <th scope="col">Title</th>
       <th scope="col">Description</th>
     </tr>
   </thead>
   <tbody *ngFor = "let data of httpdata">
     <tr>
-      <td>{{data.id}}</td>
       <td>{{data.title}}</td>
       <td>{{data.body}}</td>
     </tr>
