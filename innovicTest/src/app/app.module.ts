@@ -36,7 +36,7 @@ import { PostcommentsComponent } from './components/postcomments/postcomments.co
    ]),
    RouterModule.forRoot([
     {
-       path: 'postview-cmp',
+       path: 'postview-cmp/:id',
        component: PostViewComponent
     }
  ])
