@@ -9,9 +9,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PostViewComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
-
-  ngOnInit() {
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
   }
 
+  ngOnInit() {
+    console.log(this.getPost());
+  }
+
+  getPost(){
+    this.http.get("https://jsonplaceholder.typicode.com/posts")
+  }
 }

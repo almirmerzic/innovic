@@ -4,7 +4,7 @@ import { PostViewComponent } from './components/post-view/post-view.component';
 import { PostcommentsComponent } from './components/postcomments/postcomments.component';
 
 const routes: Routes = [
-  { path: 'postcomments-cmp', component: PostcommentsComponent },
+  { path: 'postlist', component: PostcommentsComponent },
   { path: 'posts/:id', component: PostViewComponent },
 
 ];
