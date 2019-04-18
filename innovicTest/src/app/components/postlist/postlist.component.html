@@ -7,8 +7,8 @@
   </thead>
   <tbody *ngFor = "let data of httpdata">
     <tr>
-      <td><a href="/postview?/{data/.id}"></a>{{data.title}}</td>
-      <td>{{data.body}}</td>
+      <td><a routerLink="/posts/{{data.id}}">{{data.title}}</a></td>
+      <td><a routerLink="/posts/{{data.id}}">{{data.body}}</a></td>
     </tr>
   </tbody>
 </table>

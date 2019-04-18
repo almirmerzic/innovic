@@ -27,20 +27,7 @@ import { PostcommentsComponent } from './components/postcomments/postcomments.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    RouterModule.forRoot([
-      {
-         path: 'postcomments-cmp',
-         component: PostcommentsComponent
-      }
-   ]),
-   RouterModule.forRoot([
-    {
-       path: 'postview-cmp',
-       component: PostViewComponent
-    }
- ])
-
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
