@@ -6,7 +6,7 @@
           <div class="row">
             <div class="col-12">
               <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header">User info</div>
+                <div class="card-header"><b>User info</b></div>
                 <div class="card-body text-secondary">
                   <p class="card-text"><b>Name:</b> {{user.name}}</p>
                   <p class="card-text"><b>Email: </b>{{user.email}}</p>
@@ -22,7 +22,7 @@
 
             <div class="col-12">
               <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Post details</div>
+                <div class="card-header"><b>Post details</b></div>
                 <div class="card-body text-secondary">
                   <p class="card-text"><b>Title:</b> {{post.title}}</p>
                   <p class="card-text"><b>Description: </b>{{post.body}}</p>
@@ -34,7 +34,7 @@
 
         <div class="col-6">
           <div class="card border-secondary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Post comments</div>
+            <div class="card-header"><b>Post comments</b></div>
             <div class="card-body text-secondary" *ngFor="let comment of comments">
               <p class="card-text"><b>Email:</b> {{comment.email}}</p>
               <p class="card-text"><b>Name: </b>{{comment.name}}</p>
