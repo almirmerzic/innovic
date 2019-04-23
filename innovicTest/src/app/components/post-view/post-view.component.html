@@ -27,9 +27,10 @@
         <div class="col-6">
           <div class="card border-secondary mb-3" style="max-width: 18rem;">
             <div class="card-header">Post comments</div>
-            <div class="card-body text-secondary" >
-              <p class="card-text"><b>Title:</b> {{post.title}}</p>
-              <p class="card-text"><b>Description: </b>{{post.body}}</p>
+            <div class="card-body text-secondary" *ngFor = "let comment of comments">
+              <p class="card-text"><b>User:</b> {{comment.email}}</p>
+              <p class="card-text"><b>Name: </b>{{comment.name}}</p>
+              <p class="card-text"><b>Comment: </b>{{comment.body}}</p>
             </div>
           </div>
         </div>

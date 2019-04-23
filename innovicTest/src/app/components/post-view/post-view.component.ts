@@ -20,7 +20,6 @@ export class PostViewComponent implements OnInit {
   comments: [];
   post : {};
   user : {};
-  comment:[];
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
   }
@@ -39,7 +38,6 @@ export class PostViewComponent implements OnInit {
       this.posts.forEach((p: Posts) => {
         if (p.id == this.route.snapshot.params.id) {
           this.post = p as any;
-          console.log('vo',this.post);
         }
       });
     });
@@ -51,22 +49,13 @@ export class PostViewComponent implements OnInit {
       this.users.forEach((p: Users) => {
         if (p.id == this.route.snapshot.params.id) {
           this.user = p as any;
-          console.log('vo',this.user);
         }
       });
-      console.log(this.users);
     });
 
-    this.http.get(postsEndpoint)
+    this.http.get("http://jsonplaceholder.typicode.com/comments?postId="+this.route.snapshot.params.id)
     .subscribe((data) => {
-      this.posts = data as any;
-
-      this.posts.forEach((p: Posts) => {
-        if (p.id == this.route.snapshot.params.id) {
-          this.post = p as any;
-          console.log('vo',this.post);
-        }
-      });
+      this.comments = data as any;
     });
   }
 }
