@@ -9,7 +9,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PostlistComponent } from './components/postlist/postlist.component';
 import { LatestcommentsComponent } from './components/latestcomments/latestcomments.component';
-import { AddUserComponent } from './components/add-user/add-user.component';
 import { PostViewComponent } from './components/post-view/post-view.component';
 import { PostcommentsComponent } from './components/postcomments/postcomments.component';
 
@@ -20,7 +19,6 @@ import { PostcommentsComponent } from './components/postcomments/postcomments.co
     FooterComponent,
     PostlistComponent,
     LatestcommentsComponent,
-    AddUserComponent,
     PostViewComponent,
     PostcommentsComponent
   ],

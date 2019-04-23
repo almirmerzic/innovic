@@ -18,4 +18,9 @@ export class PostlistComponent implements OnInit {
   }
   displaydata(data) { this.httpdata = data; }
 
+  myClickFunction(event) {
+    alert("Button is clicked");
+    console.log(event);
+ }
+
 }
