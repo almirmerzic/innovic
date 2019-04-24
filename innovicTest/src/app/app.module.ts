@@ -11,6 +11,7 @@ import { PostlistComponent } from './components/postlist/postlist.component';
 import { LatestcommentsComponent } from './components/latestcomments/latestcomments.component';
 import { PostViewComponent } from './components/post-view/post-view.component';
 import { PostcommentsComponent } from './components/postcomments/postcomments.component';
+import { EditPostComponent } from './components/edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PostcommentsComponent } from './components/postcomments/postcomments.co
     PostlistComponent,
     LatestcommentsComponent,
     PostViewComponent,
-    PostcommentsComponent
+    PostcommentsComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,

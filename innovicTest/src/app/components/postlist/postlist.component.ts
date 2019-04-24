@@ -20,7 +20,7 @@ export class PostlistComponent implements OnInit {
 
   myClickFunction(event) {
     alert("Button is clicked");
-    console.log(event);
+    console.log(event.target.id);
  }
 
 }
