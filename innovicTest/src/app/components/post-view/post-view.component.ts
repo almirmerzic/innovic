@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Router } from "@angular/router";
 import { Posts } from "./models/posts";
 import { Users } from "./models/users";
 
-const postsEndpoint = 'https://jsonplaceholder.typicode.com/posts';
 const usersEndpoint = 'https://jsonplaceholder.typicode.com/users';
 
 @Component({
@@ -15,13 +15,12 @@ const usersEndpoint = 'https://jsonplaceholder.typicode.com/users';
 
 export class PostViewComponent implements OnInit {
 
-  posts: [];
   users: [];
   comments: [];
   post: {};
   user: {};
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {
   }
 
 
@@ -29,17 +28,19 @@ export class PostViewComponent implements OnInit {
     this.getPostsandUsers();
   }
 
+  // editPost(post: Posts): void {
+  //   localStorage.removeItem("editPostId");
+  //   localStorage.setItem("editPostId", post.id.toString());
+  //   console.log("AJDI POSTA", post.id);
+  //   this.router.navigate(['edit-post']);
+  // };
+
+
   getPostsandUsers = () => {
 
-    this.http.get(postsEndpoint)
+    this.http.get("http://jsonplaceholder.typicode.com/posts/" + this.route.snapshot.params.id)
       .subscribe((data) => {
-        this.posts = data as any;
-
-        this.posts.forEach((p: Posts) => {
-          if (p.id == this.route.snapshot.params.id) {
-            this.post = p as any;
-          }
-        });
+        this.post = data as any;
       }
       );
 

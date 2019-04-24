@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-post',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPostComponent implements OnInit {
 
-  constructor() { }
+  post:[];
+  constructor(private router: Router, private http: HttpClient) { }
+
 
   ngOnInit() {
+    this.http.get("http://jsonplaceholder.typicode.com/posts/" + 1)
+    .subscribe((data) => {
+      console.log(data);
+    });
   }
 
 }
