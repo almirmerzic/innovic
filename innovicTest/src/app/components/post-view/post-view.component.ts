@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Router } from "@angular/router";
-import { Posts } from "./models/posts";
+import { MyserviceService } from '../../myservice.service';
 import { Users } from "./models/users";
-
-const usersEndpoint = 'https://jsonplaceholder.typicode.com/users';
 
 @Component({
   selector: 'app-post-view',
@@ -19,8 +15,9 @@ export class PostViewComponent implements OnInit {
   comments: [];
   post: {};
   user: {};
+  isEdit: boolean = false;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {
+  constructor(private route: ActivatedRoute, private myservice: MyserviceService) {
   }
 
 
@@ -28,23 +25,15 @@ export class PostViewComponent implements OnInit {
     this.getPostsandUsers();
   }
 
-  // editPost(post: Posts): void {
-  //   localStorage.removeItem("editPostId");
-  //   localStorage.setItem("editPostId", post.id.toString());
-  //   console.log("AJDI POSTA", post.id);
-  //   this.router.navigate(['edit-post']);
-  // };
-
-
   getPostsandUsers = () => {
 
-    this.http.get("http://jsonplaceholder.typicode.com/posts/" + this.route.snapshot.params.id)
+    this.myservice.getPostsService(this.route.snapshot.params.id)
       .subscribe((data) => {
         this.post = data as any;
       }
       );
 
-    this.http.get(usersEndpoint)
+    this.myservice.getUsersService()
       .subscribe((data) => {
         this.users = data as any;
 
@@ -55,9 +44,14 @@ export class PostViewComponent implements OnInit {
         });
       });
 
-    this.http.get("http://jsonplaceholder.typicode.com/comments?postId=" + this.route.snapshot.params.id)
+    this.myservice.getCommentService(this.route.snapshot.params.id)
       .subscribe((data) => {
         this.comments = data as any;
       });
+  }
+
+  editPost = (event) => {
+    this.isEdit = true;
+    alert(this.isEdit);
   }
 }

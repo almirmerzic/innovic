@@ -21,19 +21,34 @@
             </div>
 
             <div class="col-12">
-              <div class="card border-secondary mb-3" style="max-width: 18rem;">
+              <div class="card border-secondary mb-3" style="max-width: 18rem;" ng-if="!idEdit">
                 <div class="card-header"><b>Post details</b></div>
                 <div class="card-body text-secondary">
                   <p class="card-text"><b>Title:</b> {{post?.title}}</p>
                   <p class="card-text"><b>Description: </b>{{post?.body}}</p>
                   <div>
                     <div class="row">
-                        <div class="col-sm-6"><button type="button" class="btn btn-outline-secondary btn-block" (click)="editPost(post)">Edit</button></div>
+                        <div class="col-sm-6"><button type="button" class="btn btn-outline-secondary btn-block" (click) = "editPost($event)">Edit</button></div>
+                    </div>
+              </div>
+                </div>
+              </div>
+              <div class="card border-secondary mb-3" style="max-width: 18rem;" ng-else="idEdit">
+                <div class="card-header"><b>Post details</b></div>
+                <div class="card-body text-secondary">
+                  <p class="card-text"><b>Title:</b> {{post?.title}}</p>
+                  <p class="card-text"><b>Description: </b>{{post?.body}}</p>
+                  <div>
+                    <div class="row">
+                        <div class="col-sm-6"><button type="button" class="btn btn-outline-secondary btn-block" (click) = "editPost($event)">Edit</button></div>
                     </div>
               </div>
                 </div>
               </div>
             </div>
+
+
+
           </div>
         </div>
 
