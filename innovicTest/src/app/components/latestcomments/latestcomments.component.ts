@@ -9,12 +9,14 @@ import { MyserviceService } from '../../myservice.service';
 })
 export class LatestcommentsComponent implements OnInit {
 
-  constructor(private http: HttpClient, private myservice: MyserviceService) { }
+  constructor(private myservice: MyserviceService) { }
   httpdata;
 
   ngOnInit() {
     this.myservice.getAllCommentsService()
-      .subscribe((data) => this.displaydata(data));
+      .subscribe((data) => {this.displaydata(data)},error => {console.log("Rrror", error);
+    }
+    );
   }
   displaydata(data) { this.httpdata = data; }
 }

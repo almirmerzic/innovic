@@ -41,11 +41,11 @@
               <div class="card border-secondary mb-3" style="max-width: 18rem;" *ngIf="isEdit">
                 <div class="card-header"><b>Edit Post</b></div>
                 <div class="card-body text-secondary">
-                  <form [formGroup]="formdata" (ngSubmit)="editPost(formdata.value)">
-                    <input type="text" class="fortextbox" name="title" placeholder="title"
+                  <form [formGroup]= "form" (ngSubmit)="editPost(form.value)">
+                    <input type="text" class="form-control" name="title" placeholder="title"
                       formControlName="title">
                     <br />
-                    <input type="text" class="fortextbox" name="description" placeholder="description"
+                    <input type="text" class="form-control" name="description" placeholder="description"
                       formControlName="description">
                     <br />
 

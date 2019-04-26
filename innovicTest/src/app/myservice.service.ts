@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
 const postsEndpoint = 'http://jsonplaceholder.typicode.com/posts/';
 const usersEndpoint = 'https://jsonplaceholder.typicode.com/users';
 const commentEndpoint = 'http://jsonplaceholder.typicode.com/comments?postId=';
-const commentsEndpoint ='http://jsonplaceholder.typicode.com/comments';
+const commentsEndpoint = 'http://jsonplaceholder.typicode.com/comments';
+const editPosts = 'http://jsonplaceholder.typicode.com/posts/';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,18 @@ export class MyserviceService {
   getAllCommentsService():
     Observable<any> {
     return this.http.get(commentsEndpoint);
+  }
+
+  editPost(model,param):
+  Observable<any> {
+
+    console.log('ovo je parametar', param);
+    return this.http.put(editPosts + param,
+      {
+        "userId":model.userId,
+        "id" : model.id,
+        "title": model.title,
+        "body": model.description
+      });
   }
 }
