@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MyserviceService } from '../../myservice.service';
 import { Users } from "./models/users";
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-post-view',
@@ -16,6 +17,9 @@ export class PostViewComponent implements OnInit {
   post: {};
   user: {};
   isEdit: boolean = false;
+  title;
+  description;
+  formdata;
 
   constructor(private route: ActivatedRoute, private myservice: MyserviceService) {
   }
@@ -23,6 +27,25 @@ export class PostViewComponent implements OnInit {
 
   ngOnInit() {
     this.getPostsandUsers();
+  }
+
+  showEdit = () => {
+
+    this.isEdit = !this.isEdit;
+    this.myservice.getPostsService(this.route.snapshot.params.id)
+      .subscribe((data) => {
+        this.formdata = new FormGroup({
+          title: new FormControl(data.title),
+          description: new FormControl(data.body)
+        });
+
+      }
+      );
+
+  }
+
+  editPost = () => {
+    alert('usao');
   }
 
   getPostsandUsers = () => {
@@ -48,10 +71,5 @@ export class PostViewComponent implements OnInit {
       .subscribe((data) => {
         this.comments = data as any;
       });
-  }
-
-  editPost = (event) => {
-    this.isEdit = true;
-    alert(this.isEdit);
   }
 }

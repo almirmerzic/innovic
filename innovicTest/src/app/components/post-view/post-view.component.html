@@ -11,44 +11,51 @@
                   <p class="card-text"><b>Name:</b> {{user?.name}}</p>
                   <p class="card-text"><b>Email: </b>{{user?.email}}</p>
                   <div>
-                        <div class="row">
-                            <div class="col-sm-6"><p><button type="button" class="btn btn-outline-danger btn-block">Remove</button></p> </div>
-                            <div class="col-sm-6"> <p><button type="button" class="btn btn-outline-secondary btn-block">Edit</button></p></div>
-                        </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <p><button type="button" class="btn btn-outline-danger btn-block">Remove</button></p>
+                      </div>
+                      <div class="col-sm-6">
+                        <p><button type="button" class="btn btn-outline-secondary btn-block">Edit</button></p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="col-12">
-              <div class="card border-secondary mb-3" style="max-width: 18rem;" ng-if="!idEdit">
+              <div class="card border-secondary mb-3" style="max-width: 18rem;">
                 <div class="card-header"><b>Post details</b></div>
                 <div class="card-body text-secondary">
                   <p class="card-text"><b>Title:</b> {{post?.title}}</p>
                   <p class="card-text"><b>Description: </b>{{post?.body}}</p>
                   <div>
                     <div class="row">
-                        <div class="col-sm-6"><button type="button" class="btn btn-outline-secondary btn-block" (click) = "editPost($event)">Edit</button></div>
+                      <div class="col-sm-6"><button type="button" class="btn btn-outline-secondary btn-block"
+                          (click)="showEdit()">Edit</button></div>
                     </div>
-              </div>
+                  </div>
                 </div>
               </div>
-              <div class="card border-secondary mb-3" style="max-width: 18rem;" ng-else="idEdit">
-                <div class="card-header"><b>Post details</b></div>
+              <div class="card border-secondary mb-3" style="max-width: 18rem;" *ngIf="isEdit">
+                <div class="card-header"><b>Edit Post</b></div>
                 <div class="card-body text-secondary">
-                  <p class="card-text"><b>Title:</b> {{post?.title}}</p>
-                  <p class="card-text"><b>Description: </b>{{post?.body}}</p>
+                  <form [formGroup]="formdata" (ngSubmit)="editPost(formdata.value)">
+                    <input type="text" class="fortextbox" name="title" placeholder="title"
+                      formControlName="title">
+                    <br />
+                    <input type="text" class="fortextbox" name="description" placeholder="description"
+                      formControlName="description">
+                    <br />
+
+                    <input type="submit" value="submit" class="btn btn-outline-primary mt-1">
+                  </form>
                   <div>
-                    <div class="row">
-                        <div class="col-sm-6"><button type="button" class="btn btn-outline-secondary btn-block" (click) = "editPost($event)">Edit</button></div>
-                    </div>
-              </div>
+                  </div>
                 </div>
               </div>
             </div>
-
-
-
           </div>
         </div>
 
