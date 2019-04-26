@@ -39,14 +39,12 @@ export class MyserviceService {
     return this.http.get(commentsEndpoint);
   }
 
-  editPost(model,param):
-  Observable<any> {
-
-    console.log('ovo je parametar', param);
+  editPost(model, param):
+    Observable<any> {
     return this.http.put(editPosts + param,
       {
-        "userId":model.userId,
-        "id" : model.id,
+        "userId": model.userId,
+        "id": model.id,
         "title": model.title,
         "body": model.description
       });

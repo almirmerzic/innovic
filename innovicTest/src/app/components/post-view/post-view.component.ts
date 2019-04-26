@@ -35,7 +35,6 @@ export class PostViewComponent implements OnInit {
     this.isEdit = !this.isEdit;
     this.myservice.getPostsService(this.route.snapshot.params.id)
       .subscribe((data) => {
-        console.log('ovo je data',data);
         this.form = new FormGroup({
           userid: new FormControl(data.userId),
           id: new FormControl(data.id),
@@ -55,7 +54,7 @@ export class PostViewComponent implements OnInit {
           console.log("Rrror", error);
         }
       );
-      this.isEdit = false;
+    this.isEdit = false;
   }
 
   getPostsandUsers = () => {

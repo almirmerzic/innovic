@@ -4,14 +4,12 @@
     <tr>
       <th scope="col">Title</th>
       <th scope="col">Description</th>
-      <th scope="col">Remove</th>
     </tr>
   </thead>
   <tbody *ngFor = "let data of httpdata">
     <tr>
       <td><a routerLink="/posts/{{data.id}}">{{data.title}}</a></td>
       <td><a routerLink="/posts/{{data.id}}">{{data.body}}</a></td>
-      <td><button type="button" class="btn btn-outline-danger mt-4" (click) = "myClickFunction($event)">Delete</button></td>
     </tr>
   </tbody>
 </table>
