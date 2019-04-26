@@ -44,8 +44,9 @@ export class PostViewComponent implements OnInit {
 
   }
 
-  editPost = () => {
-    alert('usao');
+  editPost = (data) => {
+    this.title = data.title;
+    alert(this.title);
   }
 
   getPostsandUsers = () => {
