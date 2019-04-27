@@ -28,4 +28,22 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 * Aplikacije će se automatski reload-at svaki put kada promjenimo bilo koji source file.
 
-  
+# UPUTSTVO ZA KORISTENJE WEB APLIKACIJE 
+
+* Kada se aplikacije uspjesno skine i pokrene mozemo vidjeti da se
+  na samom pocetku ucitavaju header i footer, u sredini ne postoji
+  komponenta koja se poziva, jer nisam iskreno znao sta da stavim. 
+  Klikom na link Post List se otvara nova stranica gdje sa lijeve 
+  strane imamo sve postove, a sa desne komentare. Tamo pise da ovaj 
+  layout treba sadrzavati i Add-User button, ali ne pise da se ta 
+  funkcionalnost treba implementirati, cak na zadatku na prikazu 
+  (slika prva) nema gdje bi on mogao stajati. Klikom na bilo koji 
+  post sa desne strane url nas prebacuje na novu rutu odnosno u post 
+  details stranicu, gdje imamo informacije koji ga je korisnik dodao,
+  zatim detalje posta koji smo kliknuli i sve komentare za taj post. 
+  Sa nase desne strane postoje opet svi komentari. Ispod rubrike za 
+  informacije o postu postoji button sa kojim se moze editovati post.
+  Klikom na edit button ispod bootstrapove card komponente se otvara 
+  nova card komponenta u kojoj nam se omogucava editovanje posta.
+
+
