@@ -1,10 +1,10 @@
 
-<div class="card border-secondary mb-3" style="max-width: 18rem;">
-    <div class="card-header"><b>Latest comments</b></div>
+<div class="card border-secondary mb-3">
+    <div class="card-header"><b>Comments</b></div>
     <div class="card-body text-secondary" *ngFor = "let data of httpdata">
       <h6 class="card-title"><b>Email:</b> {{data.email}}</h6>
-      <p class="card-text"><b>Name:</b> {{data.name}}</p>
-      <p class="card-text"><b>Comment:</b>  {{data.body}}</p>
+      <p class="card-text">Name: {{data.name}}</p>
+      <p class="card-text">Comment: {{data.body}}</p>
     </div>
   </div>
 
