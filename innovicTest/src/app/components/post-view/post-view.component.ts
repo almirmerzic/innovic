@@ -12,7 +12,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 export class PostViewComponent implements OnInit {
 
-  users: [];
+  postUserId;
   comments: [];
   post: {};
   user: {};
@@ -62,6 +62,7 @@ export class PostViewComponent implements OnInit {
     this.myservice.getPostsService(this.route.snapshot.params.id)
       .subscribe((data) => {
         this.post = data as any;
+        this.postUserId = data.userId;
       },
         error => {
           console.log("Rrror", error);
@@ -70,11 +71,11 @@ export class PostViewComponent implements OnInit {
 
     this.myservice.getUsersService()
       .subscribe((data) => {
-        this.users = data as any;
-        this.users.forEach((p: Users) => {
-          if (p.id == this.route.snapshot.params.id) {
-            this.user = p as any;
+        data.map((user) => {
+          if (user.id == this.postUserId) {
+            this.user = user as any;
           }
+          return this.user;
         });
       },
         error => {
