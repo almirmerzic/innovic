@@ -15,7 +15,7 @@ export class PostlistComponent implements OnInit {
 
     this.myservice.getAllPostsService()
       .subscribe((data) => { this.displaydata(data) }, error => {
-        console.log("Rrror", error);
+        console.log("Error", error);
       }
       );
   }

@@ -7,6 +7,7 @@ const usersEndpoint = 'https://jsonplaceholder.typicode.com/users';
 const commentEndpoint = 'http://jsonplaceholder.typicode.com/comments?postId=';
 const commentsEndpoint = 'http://jsonplaceholder.typicode.com/comments';
 const editPosts = 'http://jsonplaceholder.typicode.com/posts/';
+const postUserEndpoint= 'http://jsonplaceholder.typicode.com/posts/';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,11 @@ export class MyserviceService {
   getAllCommentsService():
     Observable<any> {
     return this.http.get(commentsEndpoint);
+  }
+
+  getPostUserService(param):
+    Observable<any> {
+    return this.http.get(postUserEndpoint + param);
   }
 
   editPost(model, param):

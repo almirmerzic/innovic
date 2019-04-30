@@ -14,7 +14,7 @@ export class LatestcommentsComponent implements OnInit {
 
   ngOnInit() {
     this.myservice.getAllCommentsService()
-      .subscribe((data) => {this.displaydata(data)},error => {console.log("Rrror", error);
+      .subscribe((data) => {this.displaydata(data)},error => {console.log("Error", error);
     }
     );
   }

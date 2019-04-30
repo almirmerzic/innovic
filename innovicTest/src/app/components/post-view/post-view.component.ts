@@ -27,7 +27,9 @@ export class PostViewComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getPostsandUsers();
+    this.getPosts();
+    this.getUser();
+    this.getComments();
   }
 
   showEdit = () => {
@@ -51,46 +53,58 @@ export class PostViewComponent implements OnInit {
         console.log("PUT Request is successful ", data);
       },
         error => {
-          console.log("Rrror", error);
+          console.log("Error", error);
         }
       );
     this.isEdit = false;
   }
 
-  getPostsandUsers = () => {
-
-    this.myservice.getUsersService()
-    .subscribe((data) => {
-      data.map((user) => {
-        if (user.id == this.postUserId) {
-          console.log("id 1 je :", user.id);
-          console.log("id 2 je :",this.postUserId);
-          this.user = user;
-        }
-        return this.user;
-      });
-    },
-      error => {
-        console.log("Rrror", error);
-      }
-    );
-
+  getPosts = () => {
     this.myservice.getPostsService(this.route.snapshot.params.id)
       .subscribe((data) => {
-        this.post = data as any;
-        this.postUserId = data.userId;
+        this.post = data as any
       },
         error => {
-          console.log("Rrror", error);
+          console.log("Error", error);
+        }
+      );
+  }
+
+  getUser = () => {
+
+    this.myservice.getPostUserService(this.route.snapshot.params.id)
+      .subscribe((data) => {
+
+        this.postUserId = data.userId;
+
+        this.myservice.getUsersService()
+          .subscribe((data) => {
+            data.map((user) => {
+              if (user.id == this.postUserId) {
+                this.user = user as any;
+              }
+              return this.user;
+            });
+          },
+            error => {
+              console.log("Error", error);
+            }
+          );
+      },
+        error => {
+          console.log("Error", error);
         }
       );
 
+  }
+
+  getComments = () => {
     this.myservice.getCommentService(this.route.snapshot.params.id)
       .subscribe((data) => {
         this.comments = data as any;
       },
         error => {
-          console.log("Rrror", error);
+          console.log("Error", error);
         }
       );
   }
