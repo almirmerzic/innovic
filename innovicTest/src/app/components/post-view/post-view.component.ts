@@ -59,24 +59,26 @@ export class PostViewComponent implements OnInit {
 
   getPostsandUsers = () => {
 
+    this.myservice.getUsersService()
+    .subscribe((data) => {
+      data.map((user) => {
+        if (user.id == this.postUserId) {
+          console.log("id 1 je :", user.id);
+          console.log("id 2 je :",this.postUserId);
+          this.user = user;
+        }
+        return this.user;
+      });
+    },
+      error => {
+        console.log("Rrror", error);
+      }
+    );
+
     this.myservice.getPostsService(this.route.snapshot.params.id)
       .subscribe((data) => {
         this.post = data as any;
         this.postUserId = data.userId;
-      },
-        error => {
-          console.log("Rrror", error);
-        }
-      );
-
-    this.myservice.getUsersService()
-      .subscribe((data) => {
-        data.map((user) => {
-          if (user.id == this.postUserId) {
-            this.user = user as any;
-          }
-          return this.user;
-        });
       },
         error => {
           console.log("Rrror", error);
