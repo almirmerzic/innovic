@@ -27,10 +27,8 @@
                   <p class="card-text"><b>Title:</b> {{post?.title}}</p>
                   <p class="card-text"><b>Description: </b>{{post?.body}}</p>
                   <div>
-                    <div class="row">
-                      <div class="col-sm-6"><button type="button" class="btn btn-outline-secondary btn-block"
-                          (click)="showEdit()"><i class="fas fa-edit"></i> Edit</button></div>
-                    </div>
+                    <button type="button" class="btn btn-outline-secondary" (click)="showEdit()"><i
+                        class="fas fa-edit"></i> Edit</button>
                   </div>
                 </div>
               </div>
@@ -43,8 +41,7 @@
                     <input type="text" class="form-control" name="description" placeholder="description"
                       formControlName="description">
                     <br />
-
-                    <input type="submit" value="Edit Post" class="btn btn-outline-primary mt-1">
+                    <button type="submit" class="btn btn-outline-success mt-1"><i class="fas fa-edit"></i> Save</button>
                   </form>
                   <div>
                   </div>
